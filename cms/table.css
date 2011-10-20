@@ -1,0 +1,127 @@
+/*********************
+		Forms
+*********************/
+form{
+	padding:10px;
+	margin:0 auto;
+}
+form#form fieldset {
+	display:block;
+	padding:5px 10px 5px 10px;
+	line-height:20px;
+	margin-bottom:10px;
+}
+form#form legend {
+	font-size:12px;
+	font-weight:bold;
+	margin-bottom:5px;
+	padding:3px;
+	width:254px;
+}
+form#form label {
+	clear:left;
+	display:block;
+	float:left;
+	width:100px;
+	text-align:right;
+	padding-right:10px;
+	margin-bottom:5px;
+}
+form#form input {
+	padding:3px;
+	margin-bottom:5px;
+}
+form#form select {
+	margin-left:5px;
+}
+form#form textarea {
+	width:410px;
+	height:200px;
+	padding:5px;
+	overflow:auto;
+}
+form#form option {
+	background:#FFF;
+}
+form#form optgroup option {
+
+}
+form#form #button1, form#form #button2 {
+	padding-right:5px;
+	cursor:pointer;
+	width:205px;
+	margin-left:8px;
+	font-weight:bold;
+}
+form#form #button1:hover, form#form #button2:hover {
+	background-position:center left;
+}
+table{
+	font-family: "Tahoma", Verdana, Arial, Helvetica, sans-serif;
+	font-size:  75%;
+	color:#333333;
+	border-collapse: collapse;
+}
+
+caption{
+	background: url(../images/title.png) no-repeat 50px;
+	font-size: 400%;
+	text-indent: -10000px;
+}
+
+thead tr{
+	background-color: #ffffff;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+tfoot tr{
+	background-color: #FFFFFF;
+}
+
+thead th{
+	padding: 0.5em;
+	white-space: nowrap;
+}
+
+tfoot th{
+	font-size: 110%;
+	text-align: right;
+	padding-right: 0.5em;
+	letter-spacing: 1px;
+	background:  
+}
+
+tfoot td{
+	padding-left: 0.5em;
+	color: red;
+	font-size: 110%;
+	font-weight: 600;
+}
+
+tr{
+	background-color: #ffffff;
+}
+
+tr.odd{
+	background-color: #FFFFFF;
+}
+
+td, th{
+	border: 1px dotted #CCCCCC;
+}
+
+tbody td
+{
+	padding: 0.5em;
+	color:#333333;
+}
+
+td a:link, th a:link{
+	color: black;
+}
+
+td a:visited, th a:visited{
+	color: black;
+	text-decoration:none;
+}

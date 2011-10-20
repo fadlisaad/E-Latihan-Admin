@@ -1,0 +1,46 @@
+/* 
+Credits: Bit Repository
+CSS Library: http://www.bitrepository.com/
+*/
+
+html, body 
+{
+padding: 0;
+border: 0px none;
+font-size: 12px;
+font-family: Verdana;
+}
+
+table
+{
+font-size: 12px;
+font-family: Verdana;
+}
+
+.object_ok
+{
+border: 1px solid green; 
+color: #333333; 
+}
+
+.object_error
+{
+border: 1px solid #AC3962; 
+color: #333333; 
+}
+
+/* Input */
+input
+{
+margin: 5 5 5 0;
+padding: 2px; 
+
+border: 1px solid #999999; 
+border-top-color: #CCCCCC; 
+border-left-color: #CCCCCC; 
+
+color: #333333; 
+
+font-size: 13px;
+-moz-border-radius: 3px;
+}

@@ -1,0 +1,58 @@
+<script type="text/javascript" src="../tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript">
+	tinyMCE.init({
+	mode : "textareas",
+	theme : "simple"
+	});
+</script>
+
+updated admin\analisis-peserta.php
+updated admin\details-admin.php
+updated admin\details-lokasi.php
+updated admin\details-penaja.php
+updated admin\details-penceramah.php
+updated admin\index.php
+updated admin\list-bayaran-invoice.php
+updated admin\list-bayaran-kursus.php
+updated admin\list-bayaran-pendahuluan.php
+updated admin\list-bayaran.php
+updated admin\list-honorarium.php
+updated admin\list-kategori.php
+updated admin\list-kursus-kategori.php
+updated admin\list-kursus.php
+updated admin\list-lokasi.php
+updated admin\list-penaja.php
+updated admin\list-penceramah-kursus.php
+updated admin\list-penceramah.php
+updated admin\list-penyata.php
+updated admin\list-peserta-kursus.php
+updated admin\list-peserta.php
+updated admin\list-topik.php
+updated admin\list.php
+updated admin\report-chart.php
+updated admin\report.php
+updated admin\ringkasan.php
+updated admin\tambah-admin.php
+updated admin\tambah-bayaran-invoice.php
+updated admin\tambah-bayaran-pendahuluan.php
+updated admin\tambah-ceramah.php
+updated admin\tambah-kategori.php
+updated admin\tambah-kursus-admin.php
+updated admin\tambah-kursus.php
+updated admin\tambah-lokasi.php
+updated admin\tambah-penceramah.php
+updated admin\tambah-peserta.php
+updated admin\tambah-topik.php
+updated admin\ubah-admin.php
+updated admin\ubah-kursus.php
+updated admin\ubah-password.php
+updated admin\ubah-penaja.php
+updated admin\upload-kursus.php
+updated admin\carta\peserta-jantina.php
+updated admin\carta\peserta-kluster.php
+updated admin\laporan\report_kursus.php
+updated user\user-page.php
+
+Mempertingkatkan pengetahuan dan kemahiran mengenai teknologi terkini landskap dan simenfero.
+reka bentuk landskap, alatan dan grafik, inventori dan analisis tapak, pembiakan dan penyelenggaraan tanaman landskap, pengurusan projek landskap dan pembangunan simenfero.
+Melahirkan peserta yang berkebolehan mereka bentuk perlandskapan dan simenfero untuk tujuan komersial.

@@ -1,0 +1,99 @@
+
+/* Default font settings. 
+   The font-size percentage is of 16px. (0.75 * 16px = 12px) */
+body { 
+  font-size: 75%; 
+  color: #222; 
+  background: #fff;
+  font-family:"Lucida Grande", "Lucida Sans Unicode", "Bitstream Vera Sans", Verdana, Arial, sans-serif; 
+  line-height: 1.5;
+}
+
+
+/* Headings
+-------------------------------------------------------------- */
+
+h1,h2,h3,h4,h5,h6 { font-weight: normal; color: #111; }
+
+h1 { font-family: helvetica,times; font-size: 3em; line-height: 1; margin-bottom: 0.5em; font-weight: bold; }
+h2 { font-size: 2em; margin-bottom: 0.75em; font-weight: bold; }
+h3 { font-size: 1.5em; line-height: 1; margin-bottom: 1em; }
+h4 { font-size: 1.2em; line-height: 1.25; margin-bottom: 1.25em; }
+h5 { font-size: 1em; font-weight: bold; margin-bottom: 1.5em; }
+h6 { font-size: 1em; font-weight: bold; }
+
+h1 img, h2 img, h3 img, 
+h4 img, h5 img, h6 img {
+  margin: 0;
+}
+
+
+/* Text elements
+-------------------------------------------------------------- */
+a, 
+a:visited 	{ color: #3f83c7; text-decoration: none; }
+a:hover, 
+a:active 	{ text-decoration: underline; }
+
+p           { margin: 0 0 1.5em; color: #424242; font-size: 1.2em}
+p img.left  { float: left; margin: 1.5em 1.5em 1.5em 0; padding: 0; }
+p img.right { float: right; margin: 1.5em 0 1.5em 1.5em; }
+
+blockquote  { font-size: 1.2em; margin: 1em 0; color: #666; font-style: italic; line-height: 200%; }
+sup, sub    { line-height: 0; }
+
+abbr, 
+acronym     { border-bottom: 1px dotted #666; }
+address     { margin: 0 0 1.5em; font-style: italic; }
+del         { color:#666; }
+
+pre 		{ margin: 1.5em 0; white-space: pre; }
+pre,code,tt { font: 1em 'andale mono', 'lucida console', monospace; line-height: 1.5; }
+
+
+/* Lists
+-------------------------------------------------------------- */
+
+li 			{ padding: 2px 0 2px 0; margin: 0; font-size: 1.2em }
+li li 		{ font-size: 1em }
+li ul, 
+li ol       { margin: 0 1.5em; }
+ul, ol      { margin: 0 1.5em 1.5em 1.5em; }
+
+ul          { list-style-type: disc; }
+ol          { list-style-type: decimal; }
+
+dl          { margin: 0 0 1.5em 0; }
+dl dt       { font-size: 1.2em; font-weight: bold;  margin: 1.5em 0 0.3em 0; }
+dd          { font-size: 1.2em; }
+dd li 		{ font-size: 1em }
+
+.inline li  { margin: 0; padding: 0; list-style-type: none; display: inline }	
+
+
+/* Misc classes
+-------------------------------------------------------------- */
+
+.small      { font-size: .9em; margin-bottom: 1.875em; line-height: 1.875em; }
+.large      { font-size: 1.2em; line-height: 2.5em; margin-bottom: 1.25em; }
+.hide       { display: none; }
+
+.quiet      { color: #999; }
+.loud       { color: #000; }
+.highlight  { background:#ffffdf; }
+
+.added      { background:#060; color: #fff; }
+.removed    { background:#900; color: #fff; }
+
+.first      { margin-left:0; padding-left:0; }
+.last       { margin-right:0; padding-right:0; }
+.top        { margin-top:0; padding-top:0; }
+.bottom     { margin-bottom:0; padding-bottom:0; }
+.center		{ text-align: center; }
+
+.nextAction { text-align:center; font-size: 1.5em !important; padding: 8px 4px; border:1px solid #995; background-color: #ffffdf; }
+.error 		{ margin: 0; padding:2em 4em; background-color: #FAFAD2; border: 1px solid #EEE; font-size: 1.1em; line-height: 150%; }
+.important 	{ background-color: #fff4f4; border: 1px solid #ffcccc; padding: 5px; font-size: 1.2em; }
+
+img.icon 	{ vertical-align: middle; margin: 0 2px; }
+strong		{ font-weight: bold; }

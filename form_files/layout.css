@@ -1,0 +1,57 @@
+
+#header  		{ min-height: 50px; }
+#container 		{ clear: both; padding-top:40px; }
+
+/* Main content wrapper */
+.content 		{ min-width: 760px; max-width: 920px; margin: 0 auto; padding: 0 5px; }
+
+/* Single column layout */
+.oneColumn 		{ width: 75%; }
+.centered		{ margin: 0 auto; }
+
+/* Single narrow column layout (to be used with .frame) */
+.oneNarrowColumn { width: 410px; }
+
+/* Two columns layout (sidebar on the left) */
+.oneThirdColumn { width: 32%;  }
+.twoThirdColumn { width: 66%; float: right;}
+
+/* Two columns layout (small sidebar on the right) */
+.oneColumn 		{ }
+.sideBar		{ float: right }
+
+/* Two balanced columns */
+.oneHalfColumn  { width: 45%; float: left; margin-right: 5%}
+
+/* Three columns layout */
+.column 		{ width: 32%; float: left; }
+
+
+/* Vertical sections */
+.mainsection 	{  }
+.section 		{ clear: both; } 
+
+
+/* Page backgrounds */
+#background 	 { background-image: url(body-bg.gif); background-position: top left; background-repeat: repeat-x; background-color: #fff; }
+.mainsection 	 { background-image: url(wave-side-bg.gif); background-position: bottom left; background-repeat: repeat-x; min-height: 300px; }
+.section 		 { background-image: url(section-divider.gif); background-position: top left; background-repeat: repeat-x; min-height: 30px; }
+.section .column { background-image: url(section-bg.gif); background-position:left bottom; background-repeat:no-repeat; min-height: 200px; }
+#footer 		 { background-image: url(footer-bg.gif); background-position: top left; background-repeat: repeat-x; min-height: 130px; }
+
+/* Frames */ 
+.frame 			 { background-image: url(frame-bg.gif); background-repeat: no-repeat; background-position: bottom left; padding-bottom: 40px;	width: 409px; margin: 0 auto; }
+.frame .inner 	 { background-image: url(frame-top-bg.gif); background-repeat: no-repeat; background-position: top left; padding: 30px 30px 0 30px; }
+
+.postit 		 { background-image: url(post-it-bg.gif); background-repeat: no-repeat; background-position: bottom left; width: 145px; border-top: 1px solid #e0e5e0;	
+		   		   padding-bottom: 35px; margin: 0 0 40px 10px; float: right;
+				 }
+				 
+.framed			{ border: 1px solid #DDD; padding: 5px; background-color: #FFFFE5; }
+.framed	.inner  { border: 1px solid #BBBBDF; padding: 15px; } 
+
+.sideBar.framed { margin: 0 0 30px 50px; }
+
+
+
+

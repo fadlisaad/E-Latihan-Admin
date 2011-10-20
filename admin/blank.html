@@ -1,0 +1,257 @@
+<?php require_once('Connections/ts_kursus.php'); ?>
+<?php
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  $theValue = (!get_magic_quotes_gpc()) ? addslashes($theValue) : $theValue;
+
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? "'" . doubleval($theValue) . "'" : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
+}
+
+$editFormAction = $_SERVER['PHP_SELF'];
+if (isset($_SERVER['QUERY_STRING'])) {
+  $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
+}
+
+if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
+  $insertSQL = sprintf("INSERT INTO ts_admin (ts_admin_username, ts_admin_password, ts_admin_nama, ts_admin_phone, ts_admin_email, ts_admin_gambar) VALUES (%s, %s, %s, %s, %s, %s)",
+                       GetSQLValueString($_POST['daftar_username'], "text"),
+                       GetSQLValueString($_POST['daftar_password'], "text"),
+                       GetSQLValueString($_POST['full_name'], "text"),
+                       GetSQLValueString($_POST['daftar_telefon'], "text"),
+                       GetSQLValueString($_POST['daftar_email'], "text"),
+                       GetSQLValueString($_POST['file'], "text"));
+
+  mysql_select_db($database_ts_kursus, $ts_kursus);
+  $Result1 = mysql_query($insertSQL, $ts_kursus) or die(mysql_error());
+
+  $insertGoTo = "admin_daftar.php";
+  if (isset($_SERVER['QUERY_STRING'])) {
+    $insertGoTo .= (strpos($insertGoTo, '?')) ? "&" : "?";
+    $insertGoTo .= $_SERVER['QUERY_STRING'];
+  }
+  header(sprintf("Location: %s", $insertGoTo));
+}
+
+if (!function_exists("GetSQLValueString")) {
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+
+  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? "'" . doubleval($theValue) . "'" : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
+}
+}
+
+mysql_select_db($database_ts_kursus, $ts_kursus);
+$query_senarai_admin = "SELECT * FROM ts_admin ORDER BY ts_admin_ID ASC";
+$senarai_admin = mysql_query($query_senarai_admin, $ts_kursus) or die(mysql_error());
+$row_senarai_admin = mysql_fetch_assoc($senarai_admin);
+$totalRows_senarai_admin = mysql_num_rows($senarai_admin);
+
+isset($startRow_senarai_admin)? $orderNum=$startRow_senarai_admin:$orderNum=0;
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Dashboard - Admin</title>
+<link rel="stylesheet" type="text/css" href="css/theme1.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script>
+   var StyleFile = "theme" + document.cookie.charAt(6) + ".css";
+   document.writeln('<link rel="stylesheet" type="text/css" href="css/' + StyleFile + '">');
+</script>
+<!--[if IE]>
+<link rel="stylesheet" type="text/css" href="css/ie-sucks.css" />
+<![endif]-->
+</head>
+
+<body>
+	<div id="container">
+    	<div id="header">
+        	<h2>My eCommerce Admin area</h2>
+    <div id="topmenu">
+            	<ul>
+                	<li class="current"><a href="index3.html">Dashboard</a></li>
+                    <li><a href="#">Orders</a></li>
+                	<li><a href="users.html">Users</a></li>
+                    <li><a href="#">Manage</a></li>
+                    <li><a href="#">CMS</a></li>
+                    <li><a href="#">Statistics</a></li>
+                    <li><a href="#">Settings</a></li>
+              </ul>
+          </div>
+      </div>
+        <div id="top-panel">
+            <div id="panel">
+                <ul>
+                    <li><a href="#" class="report">Sales Report</a></li>
+                    <li><a href="#" class="report_seo">SEO Report</a></li>
+                    <li><a href="#" class="search">Search</a></li>
+                    <li><a href="#" class="feed">RSS Feed</a></li>
+                </ul>
+            </div>
+      </div>
+        <div id="wrapper">
+            <div id="content">
+                <p><h1>Senarai Admin</h1>
+  <table width="50%" border="0" cellspacing="0" cellpadding="0">
+    <tr class="roweven">
+      <td><strong>Bil</strong></td>
+      <td><strong>Nama</strong></td>
+      <td><strong>Username</strong></td>
+      <td><strong>Password</strong></td>
+    </tr>
+    <?php do { ?>
+      <tr>
+        <td><?php echo ++$orderNum; ?></td>
+        <td><a href="admin_main.php?ts_admin_ID=<?php echo $row_senarai_admin['ts_admin_ID']; ?>"><?php echo $row_senarai_admin['ts_admin_nama']; ?></a></td>
+        <td><?php echo $row_senarai_admin['ts_admin_username']; ?></td>
+        <td><?php echo $row_senarai_admin['ts_admin_password']; ?></td>
+        </tr>
+      <?php } while ($row_senarai_admin = mysql_fetch_assoc($senarai_admin)); ?>
+  </table>
+  <h1>Tambah Admin</h1>
+  <form action="<?php echo $editFormAction; ?>" method="POST" name="daftar_admin" id="daftar_admin">
+    <table width="70%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="tright">Nama Penuh </td>
+        <td colspan="3"><label>
+            <input name="full_name" type="text" id="full_name" size="70" />
+        </label></td>
+      </tr>
+      <tr>
+        <td class="tright">Username</td>
+        <td><input type="text" name="daftar_username" id="daftar_username" /></td>
+        <td class="tright"><span class="tright">Password</span></td>
+        <td><input type="password" name="daftar_password" id="daftar_password" /></td>
+      </tr>
+      <tr class="roweven">
+        <td class="tright">Telefon</td>
+        <td><input name="daftar_telefon" type="text" id="daftar_telefon" /></td>
+        <td class="tright">E-mail</td>
+        <td><input name="daftar_email" type="text" id="daftar_email" /></td>
+      </tr>
+      <tr class="roweven">
+        <td class="tright">Gambar (jika ada) </td>
+        <td colspan="3"><input name="daftar_gambar" type="file" id="daftar_gambar" />
+          <?php
+					$errormsg = "Maaf,gambar gagal dimuat-naik";
+					$uploadmsg = "Gambar berjaya dimuat-naik";
+					
+					if(isset($_FILES['daftar_gambar']['tmp_name'])){
+						$target_path = "upload/";
+						$target_path = $target_path . basename( $_FILES['daftar_gambar']['name']); 
+						if(move_uploaded_file($_FILES['daftar_gambar']['tmp_name'], $target_path)) {
+						echo "<em>".basename( $_FILES['daftar_gambar']['name'])."</em> ".$uploadmsg;
+						} else{
+						echo "<em>".basename( $_FILES['daftar_gambar']['name'])."</em> ".$errormsg;
+						}
+					}else{
+					}
+					?>
+        <input type="hidden" name="MAX_FILE_SIZE" value="1600000" /></td>
+      </tr>
+      <tr class="roweven">
+        <td class="tright">&nbsp;</td>
+        <td colspan="3"><input name="button" type="submit" class="button" id="button" value="Hantar" />
+        <input name="button2" type="reset" class="button" id="button2" value="Batal" /></td>
+      </tr>
+    </table>
+    <input type="hidden" name="MM_insert" value="form1">
+  </form>
+</p>
+            </div>
+            <div id="sidebar">
+  				<ul>
+                	<li><h3><a href="#" class="house">Dashboard</a></h3>
+                        <ul>
+                        	<li><a href="#" class="report">Sales Report</a></li>
+                    		<li><a href="#" class="report_seo">SEO Report</a></li>
+                            <li><a href="#" class="search">Search</a></li>
+                        </ul>
+                    </li>
+                    <li><h3><a href="#" class="folder_table">Orders</a></h3>
+          				<ul>
+                        	<li><a href="#" class="addorder">New order</a></li>
+                          <li><a href="#" class="shipping">Shipments</a></li>
+                            <li><a href="#" class="invoices">Invoices</a></li>
+                        </ul>
+                    </li>
+                    <li><h3><a href="#" class="manage">Manage</a></h3>
+          				<ul>
+                            <li><a href="#" class="manage_page">Pages</a></li>
+                            <li><a href="#" class="cart">Products</a></li>
+                            <li><a href="#" class="folder">Product categories</a></li>
+            				<li><a href="#" class="promotions">Promotions</a></li>
+                        </ul>
+                    </li>
+                  <li><h3><a href="#" class="user">Users</a></h3>
+          				<ul>
+                            <li><a href="#" class="useradd">Add user</a></li>
+                            <li><a href="#" class="group">User groups</a></li>
+            				<li><a href="#" class="search">Find user</a></li>
+                            <li><a href="#" class="online">Users online</a></li>
+                        </ul>
+                    </li>
+				</ul>       
+          </div>
+      </div>
+        <div id="footer">
+        <div id="credits">
+   		Template by <a href="http://www.bloganje.com">Bloganje</a>
+        </div>
+        <div id="styleswitcher">
+            <ul>
+                <li><a href="javascript: document.cookie='theme='; window.location.reload();" title="Default" id="defswitch">d</a></li>
+                <li><a href="javascript: document.cookie='theme=1'; window.location.reload();" title="Blue" id="blueswitch">b</a></li>
+                <li><a href="javascript: document.cookie='theme=2'; window.location.reload();" title="Green" id="greenswitch">g</a></li>
+                <li><a href="javascript: document.cookie='theme=3'; window.location.reload();" title="Brown" id="brownswitch">b</a></li>
+                <li><a href="javascript: document.cookie='theme=4'; window.location.reload();" title="Mix" id="mixswitch">m</a></li>
+            </ul>
+        </div><br />
+
+        </div>
+</div>
+</body>
+</html>
+<?php
+mysql_free_result($senarai_admin);
+?>

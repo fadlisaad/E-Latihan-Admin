@@ -1,0 +1,270 @@
+@import url('reset.css');
+@import url('layout.css');
+@import url('typography.css');
+@import url('navigation.css');
+
+body 	{ background-color: #96bbe0; }
+
+/* FA Logo */
+#header .logo { float: left; margin-left: -32px; }
+
+/* Tag line below FormAssembly.com logo */
+#header h2 { margin: 0; clear: left; font-size: 0.9em; color: #8b917a; font-family: Arial, Helvetica, sans-serif; }
+
+/* Footer */
+#footer .column	.partner	{ padding-left: 10px; }
+#footer .column p			{ margin: 0; }
+.copyright					{ color:#666; font-size: 0.8em }
+
+
+/* Homepage */
+
+.pitch 				{ min-width: 380px;	max-width: 440px; padding-top: 5px; }
+.createwebforms 	{ margin-top: 0px; background-image: url(create-web-forms.gif); background-repeat: no-repeat; width: 290px; height: 70px; border: none; }
+.pitch h1 span 		{ display: none; }
+.pitch p 			{ line-height: 190%; font-size: 1.2em; }
+.pitch .nextAction 	{ margin: 2em 0 0 0; font-size: 1.5em !important ; font-weight: bold; }
+
+.tryit 				{ float: right; width:379px; height: 340px; background-image: url(form-builder-try-it.gif); background-repeat: no-repeat; }
+.tryit a 			{ display: block; width: 379px; height: 340px; }
+.tryit a span 		{ display: none; }
+.examples 			{ float: right; width:379px;}
+.examples p 		{ font-size: 1em;  padding: 0 0 0 15px;}
+
+.sideBar .tryit 	{ width: 310px; background-image: url(try-it-now-310x280.gif); background-repeat: no-repeat; }
+.sideBar .tryit a 	{ width: 310px; height: 280px; }
+.sideBar .tryit p 	{ margin: 0 0 2em 0; }
+
+/*  Blog / Web Developer Corner / Why Use FormAssembly? */
+.column h2			{ padding: 0 12px; font-size: 1.5em; margin: 1em 0 0 0; color: #565; }
+.column h3 			{ padding: 0 12px; font-size: 1.3em }
+.column p 			{ padding: 0 12px; }	
+
+
+
+/* FAQ & Misc. Documentation Pages */
+
+.documentation h2 {	color: #999; }
+.documentation hr { border: none; height: 1px; background-color: #EEE; margin: 3em 0 2em 0; }
+
+
+
+
+
+
+/* Signup / Pricing pages */
+
+.pricing h1 		{ text-align: left;	border: none; margin: 0 0 0 180px; }
+.pricing h2 		{ text-align: left; font-family: helvetica,times; font-size: 1.7em; color: #444; font-weight: normal; margin: 0 0 1.3em 180px; }
+.pricing table 		{ width: 100%; border-collapse: collapse; margin: 0; padding: 0; }
+
+.pricing th 		{ text-align: right; padding-right: 10px; font-weight: normal; font-size: 0.95em; vertical-align: middle; }
+.pricing th 		{ width: 170px; }
+.pricing .header th	{ text-align: center; width: auto; background-color: rgb(245,245,245); }
+.pricing .confirm, 
+.pricing .selected, 
+.pricing .header 
+	.selected 		{ background-color: #FFFFCC; }
+.pricing 
+	.bestFor th		{ color: #777;
+}
+.pricing 
+	.bestFor td 	{ color: #333; font-size: 1em; padding: 1em 0; }
+html 
+	.pricing 
+	.topBorder 
+	.blank, 
+.pricing 
+	.header .blank  { background-image: none !important; background-color: transparent; }
+html 
+	.pricing 
+	.topBorder td 	{ background-image: url(plans-table-top.png) !important; background-repeat: repeat-y; background-position: top left; height: 10px; }
+
+html 
+	.pricing 
+	.topBorder 
+	.leftBorder 	{ background-image: url(plans-table-tl.png) !important; background-repeat: no-repeat; background-position: top left; }
+html 
+	.pricing 
+	.topBorder 
+	.rightBorder 	{ background-image: url(plans-table-tr.png) !important; background-repeat: no-repeat; background-position: top right; }
+
+.pricing td 		{ background-image: url(table-row-border-bottom.gif); background-repeat: repeat-x; background-position: top left; text-align: center; padding: 2px 0; font-size: 0.95em; color: #70946b; background-color: rgb(245,245,245); }
+
+html 
+	.pricing 
+	.featureSelected 
+	td 				{ background-image: none; } 
+
+.pricing 
+	td img 			{ vertical-align: middle; }
+html 
+	.pricing 
+	tr .leftBorder 	{ background-image: url(plans-table-left.png) !important; background-repeat: repeat-y; background-position: top left; background-color: transparent; width: 15px; }
+
+html 
+	.pricing 
+	tr .rightBorder { background-image: url(plans-table-right.png) !important; background-repeat: repeat-y; background-position: top right; background-color: transparent; width: 15px; }
+
+html 
+	.pricing 
+	.bottomBorder td { background-image: url(plans-shadow-bottom.png) !important; background-position: bottom left; background-repeat: repeat-x; height: 20px; vertical-align: middle; line-height: 1; }
+html 
+	.pricing 
+	.bottomBorder 
+	.leftBorder 	{ background-image: url(plans-shadow-bl.png) !important; background-position: bottom left; background-repeat: no-repeat; height: 20px; vertical-align: middle; line-height: 1; }
+html 
+	.pricing 
+	.bottomBorder 
+	.rightBorder 	{ background-image: url(plans-shadow-br.png) !important; background-position: bottom right; background-repeat: no-repeat; height: 20px; vertical-align: middle; line-height: 1; }
+
+.pricing .feature 			 { color: #3F83C7; font-size: 13px; }
+.pricing .feature:hover 	 { text-decoration: underline; cursor:  pointer; }
+.pricing td img 			 { cursor:  pointer; }
+.pricing .featureDescription { display: none; }
+.pricing .featureDescription 
+	.description 			 { color: #555; padding: 15px 20px; font-size: 1.1em; line-height: 150%; }
+.pricing .featureSelected 	 { display: table-row !important; }
+.pricing 
+	.featureDescription td 	 { text-align: left; }
+
+.pricing .confirm 			 { font-weight: bold; }
+.pricing .selectRow td, 
+.pricing .selectRow th 		 { padding-top: 25px; padding-bottom: 25px; }
+.pricing .faqLinks td 		 { padding: 12px 0; }
+
+.button  					 { display: block; width: 84px; height: 21px;
+							   background-image: url(button-bg.gif); background-repeat: no-repeat; background-position: 1px 0; 
+							   text-align: center; font-size: 13px; margin: 0 auto;}
+.pricing .button 			 { font-weight: bold; }
+
+.pricing .iconLegend 		 { text-align: right; font-size: .8em; color: #666; }
+.pricing .iconLegend img 	 { vertical-align: middle; }
+.pricing  .nextStep 		 { text-align: right; font-size: 0.85em; line-height: 23px; }
+.pricing .paymentMethods 	 { margin-top: 10px; text-align: right; }
+.pricing .paymentMethods img { vertical-align: middle; }
+
+
+
+/ * Unused */ 
+	
+.planWizard 			{ margin: 0 0 3em 0; padding: 0; clear: both; }
+.planWizard h4 			{ margin: 0; font-weight: normal; font-size: 1.4em; }
+.planWizard .wrapper 	{ width: 40em; }
+.planWizard #q 			{ width: 400px; font-size: 1.3em; padding: 0.2em; }
+.planWizard #s 			{ font-size: 1.3em; padding: 0.1em; }
+.planWizard .hint 		{ font-size: 0.8em; color: grey; margin: 1.5em 0 0 0; }
+.planWizard #suggestions { width: 400px; padding-bottom:2em; margin-top: 1em; }
+.planWizard .result 	{ position:relative; height:4em; }
+.planWizard .colFeature { width: 35%; position: absolute; white-space: normal; font-weight: bold; }
+.planWizard .colAvailableOn { width: 25%; position: absolute; left: 35%; white-space: normal; }
+.planWizard .colPlan { width: 40%; position: absolute; left: 60%; white-space: normal; }
+
+
+
+
+/* Sign-up Form */
+
+#registrationForm  {}
+#registrationForm .preField { float: left; display: block !important; width: 130px !important; min-width: 130px !important;
+							  border-bottom: 1px dotted #CCC; margin: 0 5px 0 0 !important; padding: 0 !important; font-size: 1.2em; }
+#registrationForm .oneField { margin: 6px 0; }
+#registrationForm .actions  { padding: 20px 0 10px 0 ; }
+#registrationForm 
+	.actions input 			{ float: right; font-size: 1.3em; font-weight: bold; }
+#registrationForm .reqMark  { color: #F00; font-family: "Courier New", Courier, mono; }
+
+/*
+ * Testimonial Page
+ */
+.testimonialForm 				{ width: 600px; }
+.testimonialForm .actions input { float: none !important; }
+ 
+.partner .testimonial img		{ float: left; margin: 0 20px 50px 0; }
+.testimonialCard { margin: 10px 0; }
+
+/*
+ * Contact Us Page
+ */ 
+ 
+.contactForm 				{ width:580px; }
+.contactForm textarea,
+.contactForm #wf_Subject 	{ width:500px; } 
+.contactForm .actions input { float: none !important; }
+
+
+
+
+
+.featureList li { font-size:0.9em; list-style-type: none; height: 52px; margin-bottom: 12px }
+.featureList li .icon { float: left; margin-right:8px; }
+
+
+.landingPage .mainsection {
+	
+}
+.landingPage .sideBar {
+	width: 240px;	
+	margin: 0 0 20px 10px;
+}
+.sideBar .nextAction {
+	padding: 10px 20px;
+	margin: 20px 0;
+	border:1px solid #3f83c7;
+	font-size:1.15em;
+}
+.sideBar .testimonials {
+	padding: 10px 20px;
+	background-color: #FFC;
+	border: 1px solid #DDD;
+	margin: 0 0 20px 0;
+}
+
+.sideBar .featureList {
+	background-color: #FFF;
+	border: 1px solid #DDD;
+	padding: 10px 10px;
+}
+.landingPage .pitch .large { font-size: 1.5em;}
+.landingPage .pitch p {
+	
+}
+.landingPage .pitch h1 {
+	border: none;
+}
+.landingPage .pitch ol {
+	font-size: 1.3em;
+	margin: 0;
+	padding: 0;
+}
+.landingPage .pitch ul {
+	font-size: 1.3em;
+	margin: 0;
+	padding: 0;
+}
+.landingPage .pitch  ol li  {
+	padding: 0;
+	margin: 0 0 0.5em 25px;
+	line-height: 150%;	
+}
+.landingPage .pitch ul li {
+	padding: 0;
+	list-style-type: none;
+	margin: 0 0 0.5em 0;
+	line-height: 150%;	
+}
+.landingPage .pitch {
+	width: 100%;
+	max-width: 100%;
+}
+
+
+.thankyou {
+	margin: 2em 0;
+	padding:1em 4px;
+	background-color: #FAFAD2;
+	border: 1px solid #EEE;
+	font-size: 1.1em;
+}
+
+

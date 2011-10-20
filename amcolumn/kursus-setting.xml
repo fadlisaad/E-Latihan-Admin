@@ -1,0 +1,55 @@
+<settings>
+  <font>Tahoma</font>
+  <background>
+    <alpha>100</alpha>
+    <border_alpha>15</border_alpha>
+  </background>
+  <plot_area>
+    <margins>
+      <left>70</left>
+      <right>50</right>
+    </margins>
+  </plot_area>
+  <grid>
+    <category>
+      <alpha>5</alpha>
+    </category>
+    <value>
+      <alpha>5</alpha>
+    </value>
+  </grid>
+  <axes>
+    <category>
+      <width>1</width>
+    </category>
+    <value>
+      <width>1</width>
+    </value>
+  </axes>
+  <values>
+    <category>
+      <rotate>0</rotate>
+    </category>
+    <value>
+      <min>0</min>
+    </value>
+  </values>
+  <graphs>
+    <graph gid="1">
+      <title>Kursus Berjadual</title>
+      <color>FF0F00</color>
+      <balloon_text>{series}: {value}</balloon_text>
+    </graph>
+  </graphs>
+  <labels>
+    <label lid="0">
+      <text><![CDATA[<b>Kursus vs Bulan</b>]]></text>
+      <y>25</y>
+      <align>center</align>
+    </label>
+  </labels>
+    <export_as_image>
+    <file>graph_kursus.jpg</file>
+    <target>_blank</target>
+  </export_as_image>
+</settings>

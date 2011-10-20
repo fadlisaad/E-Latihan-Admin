@@ -1,0 +1,27 @@
+/*
+ * Top-level navigation tabs
+ */
+.mainnavigation 				{ margin: 0; padding: 12px 0 0 0; float: right; line-height: 1; }
+.mainnavigation .tab 			{ list-style-type: none; display: block; float: left; }
+.mainnavigation .tab a 			{ display: block; width: 74px; height: 23px; padding: 6px 0 0 0;
+								  background-image: url(/images/tab-small-grey.gif); background-repeat: no-repeat; color: #3f83c7;
+								  cursor: pointer; text-align: center; font-size: 13px; font-weight: bold; 
+								  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;}
+.mainnavigation .tab a:hover 	{ background-image: url(/images/tab-small-green.gif)  !important; color: #e7efe7 !important; }
+.mainnavigation .selected a 	{ background-image: url(/images/tab-small-green.gif)  !important; color: #e7efe7 !important; }
+.mainnavigation .tab a:hover 	{ text-decoration: none !important; }
+.mainnavigation .largetab a 	{ background-image: url(/images/tab-grey.gif) !important; width: 99px !important; }
+.mainnavigation .largetab a:hover { background-image: url(/images/tab-green.gif) !important; width: 99px !important; }
+.mainnavigation .link 			{ list-style-type: none; clear: left; text-align: right; padding-top: 6px; font-size: 0.9em; }
+
+
+/* Secondary Navigation */
+
+.secondaryNav				{ margin-bottom: 3em; border-bottom: 1px solid #eee; }
+.secondaryNav .inner  		{  } 
+
+.secondaryNav ul 			{ margin: 0; padding: 0; line-height: 1.9; }
+.secondaryNav ul li 		{ padding: 5px; color: #888; }
+.secondaryNav li a 			{ font-weight: bold; }
+.secondaryNav .subnav		{ border-top: 1px solid #eee; }
+.secondaryNav .subnav li a 	{ font-weight: normal; }

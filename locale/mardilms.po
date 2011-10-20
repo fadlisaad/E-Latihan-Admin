@@ -1,0 +1,168 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: MardiLMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-10-24 21:39+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Mohd Fadli Saad <apad.net@gmail.com>\n"
+"Language-Team: apadmedia <znasystem@apadmedia.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Malay\n"
+"X-Poedit-Country: MALAYSIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: C:\\wamp\\www\\mardilms\\ts\\\n"
+"X-Poedit-KeywordsList: mardilms\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: check.php:72
+msgid "Check Registration Status"
+msgstr "Semak status pendaftaran"
+
+#: check.php:74
+msgid "To check your registration status on registered courses, please insert your  IC / Passport number below"
+msgstr "Untuk menyemak status pendaftaran anda dalam kursus tertentu, sila masukkan nombor IC / Passport dibawah"
+
+#: check.php:78
+msgid "Help?"
+msgstr "Bantuan?"
+
+#: check.php:81
+#: index2.php:45
+msgid "<a href=\"?locale=ms_MY\">Bahasa Melayu</a>"
+msgstr "<a href=\"index.php\">English</a>"
+
+#: check.php:81
+#: index2.php:45
+msgid "All copyright reserved &copy; 2009 MardiLMS"
+msgstr "Hakcipta Terpelihara &copy; 2009 MardiLMS"
+
+#: index2.php:28
+msgid "Log in to MardiLMS"
+msgstr "Log masuk ke MardiLMS"
+
+#: index2.php:30
+msgid "Username"
+msgstr "Kata Pengguna"
+
+#: index2.php:33
+msgid "Password"
+msgstr "Kata Laluan"
+
+#: index2.php:38
+msgid "Remember me on this computer"
+msgstr "Ingat saya pada komputer ini"
+
+#: index2.php:41
+msgid "Forgot your password?"
+msgstr "Lupa kata laluan?"
+
+#: reset.php:53
+msgid "Reset Password"
+msgstr "Reset kata laluan"
+
+#: reset.php:59
+msgid "Reset your password"
+msgstr "Lupa kata laluan?"
+
+#: reset.php:63
+msgid "Verify E-mail"
+msgstr "Sahkan e-mail"
+
+#: reset.php:67
+msgid "Enter secure code below"
+msgstr "Sila masukkan kod dibawah"
+
+#: reset.php:69
+msgid "Back to Login"
+msgstr "Kembali ke Log Masuk"
+
+#: reset.php:72
+msgid "<a href=\"#\">Bahasa Melayu</a>"
+msgstr "<a href=\"index.php\">English</a>"
+
+#: admin/details-admin.php:250
+#: admin/details-lokasi.php:160
+msgid "Bahasa Melayu"
+msgstr "English"
+
+#: admin/index.php:104
+msgid "Main Page"
+msgstr "Halaman Utama"
+
+#: admin/index.php:165
+msgid "Welcome back,"
+msgstr "Selamat kembali,"
+
+#: admin/index.php:165
+msgid "Add Course"
+msgstr "Tambah Kursus"
+
+#: admin/index.php:165
+msgid "Request"
+msgstr "Permintaan"
+
+#: admin/index.php:170
+msgid "Year"
+msgstr "Tahun"
+
+#: admin/index.php:178
+msgid "Telephone"
+msgstr "Telefon"
+
+#: admin/index.php:182
+msgid "E-mail"
+msgstr "E-mail"
+
+#: admin/index.php:187
+#, fuzzy
+msgid "To change your password, click here"
+msgstr "Untuk mengubah kata laluan, klik disini"
+
+#: admin/index.php:192
+msgid "List of course"
+msgstr "Senarai kursus di bawah seliaan"
+
+#: admin/index.php:196
+msgid "No"
+msgstr "Bil"
+
+#: admin/index.php:197
+msgid "Course Code"
+msgstr "Kod Kursus"
+
+#: admin/index.php:198
+msgid "Title"
+msgstr "Tajuk"
+
+#: admin/index.php:199
+msgid "Category"
+msgstr "Kategori"
+
+#: admin/index.php:200
+msgid "Action"
+msgstr "Tindakan"
+
+#: login/access-denied.php:27
+#: login/access-denied.php:33
+#: login/access-denied.php:35
+msgid "Access Denied"
+msgstr "Akses Disekat!"
+
+#: login/access-denied.php:36
+msgid "You do not have authorization to access this resource."
+msgstr "Andsa tidak mempunyai akses ke ruangan ini."
+
+#: login/login.php:25
+#: login/user-login.php:26
+msgid "Login"
+msgstr "Log Masuk"
+
+#: login/user-login.php:35
+msgid "IC No"
+msgstr "No kad pengenalan"
+
+#~ msgid "Check"
+#~ msgstr "Semak"
+

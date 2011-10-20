@@ -1,0 +1,11 @@
+Bahagian peserta
+1. upload brosur dan gambar peserta
+2. butiran/biodata peserta perlu boleh edit oleh admin, ada kalanya peserta masukkan butiran x lengkap (DONE)
+3. perlu function print butiran peserta dalam satu mukasurat sahaja ( yang terkini apabila klik print, butiran keluar dalam 2 mukasurat- quite membazir) (DONE sijil dan pengesahan)
+ 
+Penceramah
+4. Untuk bahagian penceramah, still quite messy, masih perlu tambahbaik lagi. senarai penceramah , bayaran honororium perlu dipaparkan mengikut setiap kursus, bukannya secara lump sum. - senarai penceramah mengikut kursus ada pada setiap halaman kursus pada tab ceramah, sila semak semula.
+3. Butiran gaji tiada dalam tambah penceramah- please add
+4. Bayaran rate untuk fasilitator dan penceramah berbeza-beza mengikut gred gaji. from RM 60 hingga RM 300. please provide the rate.
+5. Apabila telah tambah ceramah, langsung tak boleh edit, ada keperluan coz sometimes hari dan ceramah bertukar last minute.
+6. Where is buku program dan analisis peserta? please provide as discussed before.

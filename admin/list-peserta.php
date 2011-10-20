@@ -22,7 +22,7 @@ else {
 
 $currentPage = $_SERVER["PHP_SELF"];
 
-$maxRows_list = 25;
+$maxRows_list = 200;
 $pageNum_list = 0;
 if (isset($_GET['pageNum_list'])) {
   $pageNum_list = $_GET['pageNum_list'];

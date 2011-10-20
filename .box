@@ -6,7 +6,7 @@
 ################################################
 ## WEB SPECIFIC SETTINGS
 ################################################
-document_root: /var/www
+document_root: /
 index_list: [index.php]
 default_gateway: index.php
 
@@ -14,7 +14,7 @@ default_gateway: index.php
 ## PHP SPECIFIC SETTINGS
 ################################################
 php_version: 5.3.5
-php_extensions: [mysql]
+php_extensions: [mysql, mbstring, mysqli]
 php_error_reporting: 'E_ALL'
 php_display_errors: On
 php_short_open_tag: On

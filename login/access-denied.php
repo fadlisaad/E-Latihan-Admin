@@ -7,12 +7,7 @@
  * 
  * Description : main script for denying access to the backend.
  */
-$path_parts = pathinfo('/var/www/login/login-exec.php');
-
-echo $path_parts['dirname'], "\n";
-echo $path_parts['basename'], "\n";
-echo $path_parts['extension'], "\n";
-echo $path_parts['filename'], "\n"; // since PHP 5.2.0
+error_reporting(0);
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

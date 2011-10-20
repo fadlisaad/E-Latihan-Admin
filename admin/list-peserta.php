@@ -30,7 +30,7 @@ if (isset($_GET['pageNum_list'])) {
 $startRow_list = $pageNum_list * $maxRows_list;
 
 mysql_select_db($database_ts_kursus, $ts_kursus);
-$query_list = "SELECT ts_invoice.kursus_id, COUNT(ts_invoice.peserta_id) AS peserta, ts_kursus.ts_kursus_nama, ts_kursus.ts_kursus_bil_max FROM ts_invoice, ts_peserta, ts_kursus WHERE ts_kursus.ts_kursus_id=ts_invoice.kursus_id AND ts_invoice.peserta_id = ts_peserta.ts_peserta_ID AND ts_kursus.ts_kursus_year = $thisyear GROUP BY ts_invoice.kursus_id ORDER BY COUNT(ts_invoice.kursus_id) DESC";
+$query_list = "SELECT ts_invoice.kursus_id, ts_kursus.ts_kursus_kod, COUNT(ts_invoice.peserta_id) AS peserta, ts_kursus.ts_kursus_nama, ts_kursus.ts_kursus_vendor, ts_kursus.ts_kursus_bil_max FROM ts_invoice, ts_peserta, ts_kursus WHERE ts_kursus.ts_kursus_id=ts_invoice.kursus_id AND ts_invoice.peserta_id = ts_peserta.ts_peserta_ID AND ts_kursus.ts_kursus_year = ".$thisyear." GROUP BY ts_invoice.kursus_id ORDER BY ts_kursus.ts_kursus_vendor";
 $query_limit_list = sprintf("%s LIMIT %d, %d", $query_list, $startRow_list, $maxRows_list);
 $list = mysql_query($query_limit_list, $ts_kursus) or die(mysql_error());
 $row_list = mysql_fetch_assoc($list);
@@ -198,7 +198,9 @@ $queryString_list = sprintf("&totalRows_list=%d%s", $totalRows_list, $queryStrin
                 <thead>
                   <tr>
                     <th width="15">Bil.</th>
-				    <th>Kursus</th>
+					<th>Kod</th>
+				    <th>Tajuk Kursus</th>
+					<th>Jenis</th>
                     <th class="t-center">Jumlah Berdaftar</th>
                     <th class="t-center">Maksimum</th>
 					<th class="t-center">Peratus</th>
@@ -216,14 +218,16 @@ $queryString_list = sprintf("&totalRows_list=%d%s", $totalRows_list, $queryStrin
 					?>
                   <tr>
                     <td width="15" class="t-center"><?php echo ++$orderNum; ?></td>
+					<td nowrap="nowrap" class="t-center"><?php echo $row_list['ts_kursus_kod']; ?></td>
 				    <td><a href="list-peserta-kursus.php?ts_kursus_id=<?php echo $row_list['kursus_id']; ?>#peserta"><?php echo strtoupper($row_list['ts_kursus_nama']); ?></a></td>
+					<td nowrap="nowrap" class="t-center"><?php echo $row_list['ts_kursus_vendor']; ?></td>
                     <td nowrap="nowrap" class="t-center"><?php echo $row_list['peserta']; ?></td>
                     <td nowrap="nowrap" class="t-center"><?php echo $row_list['ts_kursus_bil_max']; ?></td>
 					<td nowrap="nowrap" class="t-center"><?php echo number_format($percentage); ?>%</td>
                   </tr><?php } while ($row_list = mysql_fetch_assoc($list)); ?>
 				  <tfoot>
                   <tr>
-                    <td colspan="2" class="t-center">Jumlah</td>
+                    <td colspan="4" class="t-center">Jumlah</td>
                     <td nowrap="nowrap" class="t-center"><?php echo $total; ?></td>
                     <td nowrap="nowrap" class="t-center"><?php echo $max; ?></td>
 					<td nowrap="nowrap" class="t-center">&nbsp;</td>

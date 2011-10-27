@@ -13,17 +13,24 @@ require_once('../Connections/ts_kursus.php');
 
 mysql_select_db($database_ts_kursus, $ts_kursus);
 
-$query_lelaki = "SELECT COUNT(ts_peserta_ID) AS jantina1 FROM ts_peserta WHERE ts_peserta.ts_peserta_jantina='lelaki'";
+if (isset($_GET['id'])) {
+	$thisyear	= $_GET['id'];
+	}
+else {
+	$thisyear	= date('Y');
+	}
+
+$query_lelaki = "select count(`ts_invoice`.`id`) AS `jantina1` from (`ts_invoice` join `ts_peserta` on((`ts_invoice`.`peserta_id` = `ts_peserta`.`ts_peserta_ID`))) where ((`ts_invoice`.`lastupdate` like '%".$thisyear."%') and (`ts_peserta`.`ts_peserta_jantina` = 'lelaki'))";
 $lelaki = mysql_query($query_lelaki, $ts_kursus) or die(mysql_error());
 $row_lelaki = mysql_fetch_assoc($lelaki);
 $totalRows_lelaki = mysql_num_rows($lelaki);
 
-$query_perempuan = "SELECT COUNT(ts_peserta_ID) AS jantina2 FROM ts_peserta WHERE ts_peserta.ts_peserta_jantina='perempuan'";
+$query_perempuan = "select count(`ts_invoice`.`id`) AS `jantina2` from (`ts_invoice` join `ts_peserta` on((`ts_invoice`.`peserta_id` = `ts_peserta`.`ts_peserta_ID`))) where ((`ts_invoice`.`lastupdate` like '%".$thisyear."%') and (`ts_peserta`.`ts_peserta_jantina` = 'perempuan'))";
 $perempuan = mysql_query($query_perempuan, $ts_kursus) or die(mysql_error());
 $row_perempuan = mysql_fetch_assoc($perempuan);
 $totalRows_perempuan = mysql_num_rows($perempuan);
 
-$query_gender = "SELECT COUNT(ts_peserta_ID) AS jumlah FROM ts_peserta";
+$query_gender = "select count(`ts_invoice`.`id`) AS `jumlah` from (`ts_invoice` join `ts_peserta` on((`ts_invoice`.`peserta_id` = `ts_peserta`.`ts_peserta_ID`))) where (`ts_invoice`.`lastupdate` like '%".$thisyear."%')";
 $gender  = mysql_query($query_gender , $ts_kursus) or die(mysql_error());
 $row_gender  = mysql_fetch_assoc($gender);
 $totalRows_gender  = mysql_num_rows($gender);
@@ -38,26 +45,25 @@ $all = mysql_query($query_all, $ts_kursus) or die(mysql_error());
 $row_all = mysql_fetch_assoc($all);
 $totalRows_all = mysql_num_rows($all);
 
-$query_ternakan = "SELECT COUNT(peserta_id) AS peserta1, ts_kursus.ts_kursus_kategori FROM ts_invoice, ts_kursus WHERE ts_kursus.ts_kursus_id=ts_invoice.kursus_id AND ts_kursus.ts_kursus_kategori='Teknologi Ternakan' GROUP BY ts_kursus.ts_kursus_kategori";
+$query_ternakan = "SELECT COUNT(peserta_id) AS peserta1, ts_kursus.ts_kursus_kategori FROM ts_invoice, ts_kursus WHERE ts_kursus.ts_kursus_id=ts_invoice.kursus_id AND ts_kursus.ts_kursus_kategori='Teknologi Ternakan' AND `ts_invoice`.`lastupdate` like '%".$thisyear."%' GROUP BY ts_kursus.ts_kursus_kategori";
 $ternakan = mysql_query($query_ternakan, $ts_kursus) or die(mysql_error());
 $row_ternakan = mysql_fetch_assoc($ternakan);
 $totalRows_ternakan = mysql_num_rows($ternakan);
 
-$query_tanaman = "SELECT COUNT(peserta_id) AS peserta2, ts_kursus.ts_kursus_kategori FROM ts_invoice, ts_kursus WHERE ts_kursus.ts_kursus_id=ts_invoice.kursus_id AND ts_kursus.ts_kursus_kategori='Teknologi Tanaman' GROUP BY ts_kursus.ts_kursus_kategori";
+$query_tanaman = "SELECT COUNT(peserta_id) AS peserta2, ts_kursus.ts_kursus_kategori FROM ts_invoice, ts_kursus WHERE ts_kursus.ts_kursus_id=ts_invoice.kursus_id AND ts_kursus.ts_kursus_kategori='Teknologi Tanaman' AND `ts_invoice`.`lastupdate` like '%".$thisyear."%' GROUP BY ts_kursus.ts_kursus_kategori";
 $tanaman = mysql_query($query_tanaman, $ts_kursus) or die(mysql_error());
 $row_tanaman = mysql_fetch_assoc($tanaman);
 $totalRows_tanaman = mysql_num_rows($tanaman);
 
-$query_makanan = "SELECT COUNT(peserta_id) AS peserta3, ts_kursus.ts_kursus_kategori FROM ts_invoice, ts_kursus WHERE ts_kursus.ts_kursus_id=ts_invoice.kursus_id AND ts_kursus.ts_kursus_kategori='Teknologi Makanan' GROUP BY ts_kursus.ts_kursus_kategori";
+$query_makanan = "SELECT COUNT(peserta_id) AS peserta3, ts_kursus.ts_kursus_kategori FROM ts_invoice, ts_kursus WHERE ts_kursus.ts_kursus_id=ts_invoice.kursus_id AND ts_kursus.ts_kursus_kategori='Teknologi Makanan' AND `ts_invoice`.`lastupdate` like '%".$thisyear."%' GROUP BY ts_kursus.ts_kursus_kategori";
 $makanan = mysql_query($query_makanan, $ts_kursus) or die(mysql_error());
 $row_makanan = mysql_fetch_assoc($makanan);
 $totalRows_makanan = mysql_num_rows($makanan);
 
-$query_lanjutan = "SELECT COUNT(peserta_id) AS peserta4, ts_kursus.ts_kursus_kategori FROM ts_invoice, ts_kursus WHERE ts_kursus.ts_kursus_id=ts_invoice.kursus_id AND ts_kursus.ts_kursus_kategori='Teknologi Lanjutan' GROUP BY ts_kursus.ts_kursus_kategori";
+$query_lanjutan = "SELECT COUNT(peserta_id) AS peserta4, ts_kursus.ts_kursus_kategori FROM ts_invoice, ts_kursus WHERE ts_kursus.ts_kursus_id=ts_invoice.kursus_id AND ts_kursus.ts_kursus_kategori='Teknologi Lanjutan' AND `ts_invoice`.`lastupdate` like '%".$thisyear."%' GROUP BY ts_kursus.ts_kursus_kategori";
 $lanjutan = mysql_query($query_lanjutan, $ts_kursus) or die(mysql_error());
 $row_lanjutan = mysql_fetch_assoc($lanjutan);
-$totalRows_lanjutan = mysql_num_rows($lanjutan); 
-
+$totalRows_lanjutan = mysql_num_rows($lanjutan);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><!-- InstanceBegin template="/Templates/Admin_Template.dwt" codeOutsideHTMLIsLocked="false" -->

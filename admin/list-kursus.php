@@ -11,6 +11,7 @@
 require_once('../Connections/ts_kursus.php');
 require_once('../login/auth.php');
 require_once('../include/paginator.php');
+$currentyear	= date('Y');
 
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -59,28 +60,14 @@ else {
 	$result 			= mysql_query($query) or die(mysql_error());
 	$num_rows 			= mysql_fetch_row($result);
 	
-	$pages 				= new Paginator;
-	$pages->items_total = $num_rows[0];
-	$pages->mid_range 	= 15; // Number of pages to display. Must be odd and > 3
-	$pages->paginate();
 
 	mysql_select_db($database_ts_kursus, $ts_kursus);
-	if(!$num_rows ) {
-		$query_admin = sprintf("SELECT * FROM ts_admin, ts_kursus WHERE ts_admin_ID = %s AND ts_kursus.ts_kursus_admin = %s AND ts_kursus.ts_kursus_year = ".$thisyear." ORDER BY ts_kursus.ts_kursus_kod ASC ".$pages->limit."", GetSQLValueString($colname_admin, "int"),GetSQLValueString($colname_admin, "int"));
-	}
-	else {
-		$query_admin = sprintf("SELECT * FROM ts_admin, ts_kursus WHERE ts_admin_ID = %s AND ts_kursus.ts_kursus_admin = %s AND ts_kursus.ts_kursus_year = ".$thisyear." ORDER BY ts_kursus.ts_kursus_kod ASC", GetSQLValueString($colname_admin, "int"),GetSQLValueString($colname_admin, "int"));
-	}
+
+
+	$query_admin = sprintf("SELECT * FROM ts_admin, ts_kursus WHERE ts_admin_ID = %s AND ts_kursus.ts_kursus_admin = %s AND ts_kursus.ts_kursus_year = ".$thisyear." ORDER BY ts_kursus.ts_kursus_kod ASC", GetSQLValueString($colname_admin, "int"),GetSQLValueString($colname_admin, "int"));
+	
 	$admin = mysql_query($query_admin, $ts_kursus) or die(mysql_error());
 	$row_admin = mysql_fetch_assoc($admin);
-
-if (isset($_GET['totalRows_admin'])) {
-  $totalRows_admin = $_GET['totalRows_admin'];
-} else {
-  $all_admin = mysql_query($query_admin);
-  $totalRows_admin = mysql_num_rows($all_admin);
-}
-$totalPages_admin = ceil($totalRows_admin/$maxRows_admin)-1;
 
 mysql_select_db($database_ts_kursus, $ts_kursus);
 $query_check_email = "SELECT ts_admin.ts_admin_email, COUNT(ts_mail.ts_email_address), ts_admin.ts_admin_ID FROM ts_admin, ts_mail WHERE ts_admin.ts_admin_email=ts_mail.ts_email_address GROUP BY (ts_mail.ts_email_address)";
@@ -158,52 +145,11 @@ $queryString_admin = sprintf("&totalRows_admin=%d%s", $totalRows_admin, $querySt
 	}
 }
 </script>
+<script type="text/javascript" src="../js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" media="screen" type="text/css" href="../css/demo_table.css" />
 <script type="text/javascript">
-
-pic1 = new Image(16, 16); 
-pic1.src = "check-username/loader.gif";
-
-$(document).ready(function(){
-	$(".tabs > ul").tabs();
-	$("#kod_kursus").change(function() { 
-		var usr = $("#kod_kursus").val();
-		if(usr.length >= 3)
-		{
-			$("#status").html('<img src="check-username/loader.gif" align="absmiddle">&nbsp;Carian kursus...');
-				$.ajax({  
-				type: "POST",  
-				url: "check-username/cari-kursus.php",  
-				data: "kod_kursus="+ usr,  
-				success: function(msg)
-				{
-					$("#status").ajaxComplete(function(event, request, settings)
-					{ 
-						if(msg == 'OK')
-						{ 
-							$("#kod_kursus").removeClass('object_error'); // if necessary
-							$("#kod_kursus").addClass("object_ok");
-							$(this).html('<p class="msg error">Tiada kursus dengan kod berkenaan. Sila cuba semula</p>');
-							//$(this).html('&nbsp;<img src="check-username/tick.gif" align="absmiddle">');
-							$("#pager").show();
-						}  
-						else  
-						{  
-							$("#kod_kursus").removeClass('object_ok'); // if necessary
-							$("#kod_kursus").addClass("object_error");
-							$(this).html(msg);
-							$("#pager").hide();
-						}
-					});
-				} 
-			});
-		}
-		else
-			{
-				$("#status").html('<font color="red">Kursus: </font>');
-				$("#kod_kursus").removeClass('object_ok'); // if necessary
-				$("#kod_kursus").addClass("object_error");
-			}
-	});
+$(document).ready(function() {
+	$('#datatable').dataTable();
 });
 </script>
 <!-- END OF HEADER -->
@@ -295,46 +241,29 @@ $(document).ready(function(){
 		<!-- InstanceBeginEditable name="content" -->
     <div id="content">
         <h3>Senarai kursus bagi tahun <?php echo $thisyear; ?></h3>
-            <div class="fix"></div>
-			<p><strong>Carian Kursus:&nbsp;</strong><input type="text" id="kod_kursus" class="input-text" AUTOCOMPLETE=OFF></p><span id="status"></span>
-			<h3>Senarai Kursus mengikut kluster (<?php echo $thisyear; ?>)</h3>
-              <div class="buttons">
-              <a href="list-kursus-kategori.php?ts_kursus_kategori=Teknologi Tanaman&amp;year=<?php echo $thisyear; ?>">
-              <img src="img/icons/note.png" alt=""/>Teknologi Tanaman</a></div>
-              <div class="buttons">
-              <a href="list-kursus-kategori.php?ts_kursus_kategori=Teknologi Ternakan&amp;year=<?php echo $thisyear; ?>">
-              <img src="img/icons/note.png" alt=""/>Teknologi Ternakan</a></div>
-              <div class="buttons">
-              <a href="list-kursus-kategori.php?ts_kursus_kategori=Teknologi Makanan&amp;year=<?php echo $thisyear; ?>">
-              <img src="img/icons/note.png" alt=""/>Teknologi Makanan</a></div>
-              <div class="buttons">
-              <a href="list-kursus-kategori.php?ts_kursus_kategori=Teknologi Lanjutan&amp;year=<?php echo $thisyear; ?>">
-              <img src="img/icons/note.png" alt=""/>Teknologi Lanjutan</a></div>
-              <div class="fix"></div>
-            <h3>Senarai Kursus tahun <?php echo $thisyear; ?></h3>
 			<div class="buttons"><a href="#"><img src="img/icons/magnifier.png" alt=""/>Pilih tahun&nbsp;&raquo;</a></div>
-			<?php for($year = 2009; $year < 2012; $year++) { ?>
+			<?php for($year = 2009; $year < $currentyear+1; $year++) { ?>
 			<div class="buttons">
 			  <a href="list-kursus.php?id=<?php echo $year ?>">
 			  <img src="img/icons/date.png" alt=""/><?php echo $year ?></a>
 			</div>
 			<?php } ?>
-			<br /><br />
+			<br />
 			<?php if($num_rows > 0) { ?>
-            <table width="100%">
+			<div id="demo">
+            <table id="datatable" width="100%">
 				<thead>
 					<tr>
 						<th width="15" class="t-center">Bil.</th>
 						<th width="60" class="t-center">Kod</th>
-						<th>Tajuk Kursus</th>
+						<th class="t-left">Tajuk latihan</th>
 						<th width="150" class="t-center">Kluster</th>
 						<th width="60" class="t-center">Tahun</th>
 					</tr>
 				</thead>
 				<tbody>
-				<?php $orderNum = $_GET['ipp']*($_GET['page']-1); ?>
                 <?php do { ?>
-					<tr class="t-center">
+					<tr>
 						<td class="t-center"><?php echo ++$orderNum; ?></td>
 						<td class="t-center"><?php echo $row_admin['ts_kursus_kod']; ?></td>
 						<td class="t-left">
@@ -346,8 +275,8 @@ $(document).ready(function(){
 				<?php } while ($row_admin = mysql_fetch_assoc($admin)); ?>
 				</tbody>
 			</table>
+			</div>
 			<hr />
-				<?php echo $pages->display_pages(); ?>
 			<?php } else { ?>
 				<p class="msg error">Tiada kursus pada tahun ini.</p>
 			<?php } ?>

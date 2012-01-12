@@ -125,3 +125,6 @@ span.inactive {
 	padding: 2px 6px 2px 6px;
 	cursor: default;
 }
+#demo {
+	margin: 30px auto 0;
+}

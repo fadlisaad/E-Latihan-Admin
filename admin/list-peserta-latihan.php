@@ -168,7 +168,7 @@ $(document).ready(function(){
 </script>
 <script type="text/javascript" src="../js/datepicker.js"></script>
 <!-- END OF HEADER -->
-<title>Senarai Peserta Kursus Mengikut Tajuk</title>
+<title>Senarai Peserta Latihan Amali Mengikut Tajuk</title>
 </head>
 
 <body>
@@ -252,14 +252,14 @@ $(document).ready(function(){
 
 		<!-- Content (Right Column) -->
     <div id="content">
-        <h3><?php echo strtoupper($row_list_peserta['ts_kursus_nama']); ?> (<?php echo $row_list_peserta['ts_kursus_kod']; ?>)<span style="float:right">
+        <h3><?php echo strtoupper($row_list_peserta['ts_latihan_nama']); ?> (<?php echo $row_list_peserta['ts_latihan_kod']; ?>)<span style="float:right">
 		<div class="buttons">
-            <a href="#"><img src="img/icons/date.png" alt=""/><?php echo $row_list_peserta['ts_kursus_year']; ?></a>
+            <a href="#"><img src="img/icons/date.png" alt=""/><?php echo $row_list_peserta['ts_latihan_year']; ?></a>
 		</div></span></h3>
 		<hr />
 		<div class="tabs box">
             <ul>
-				<li><a href="#kursus"><span>Kursus</span></a></li>
+				<li><a href="#kursus"><span>Keterangan</span></a></li>
 				<li><a href="#ceramah"><span>Ceramah</span></a></li>
 				<li><a href="#honorarium"><span>Honorarium</span></a></li>
 				<li><a href="#peserta"><span>Peserta</span></a></li>
@@ -270,63 +270,63 @@ $(document).ready(function(){
             <table width="100%" class="nostyle">
                 <tr>
 					<td width="10%"><strong>Tahun</strong></td>
-					<td width="73%"><?php echo $row_list_peserta['ts_kursus_year']; ?></td>
+					<td width="73%"><?php echo $row_list_peserta['ts_latihan_year']; ?></td>
 				</tr>
                 <tr>
                   <td><strong>Kod</strong></td>
-                  <td><?php echo $row_list_peserta['ts_kursus_kod']; ?></td>
+                  <td><?php echo $row_list_peserta['ts_latihan_kod']; ?></td>
                 </tr>
 				<tr>
 					<td><strong>Kategori</strong></td>
-					<td><?php echo $row_list_peserta['ts_kursus_vendor']; ?></td>
+					<td><?php echo $row_list_peserta['ts_latihan_vendor']; ?></td>
 				</tr>
                 <tr>
                   <td><strong>Kluster</strong></td>
-                  <td><?php echo $row_list_peserta['ts_kursus_kategori']; ?></td>
+                  <td><?php echo $row_list_peserta['ts_latihan_kategori']; ?></td>
                 </tr>
 				<tr>
                   <td><strong>Tahun</strong></td>
-                  <td><?php echo $row_list_peserta['ts_kursus_year']; ?></td>
+                  <td><?php echo $row_list_peserta['ts_latihan_year']; ?></td>
                 </tr>
                 <tr>
                   <td><strong>Tempat</strong></td>
-                  <td><?php echo $row_list_peserta['ts_kursus_lokasi']; ?></td>
+                  <td><?php echo $row_list_peserta['ts_latihan_lokasi']; ?></td>
                 </tr>
                 <tr>
-                  <td><strong>Tarikh kursus</strong></td>
+                  <td><strong>Tarikh</strong></td>
                   <td><?php 
-					if($row_list_peserta['ts_kursus_tarikh_mula'] && $row_list_peserta['ts_kursus_tarikh_tamat'] != '0000-00-00') {
-						echo date("d F Y",strtotime($row_list_peserta['ts_kursus_tarikh_mula'])); ?> hingga <?php echo date("d F Y",strtotime($row_list_peserta['ts_kursus_tarikh_tamat']));
+					if($row_list_peserta['ts_latihan_tarikh_mula'] && $row_list_peserta['ts_latihan_tarikh_tamat'] != '0000-00-00') {
+						echo date("d F Y",strtotime($row_list_peserta['ts_latihan_tarikh_mula'])); ?> hingga <?php echo date("d F Y",strtotime($row_list_peserta['ts_latihan_tarikh_tamat']));
 					}
 					else {
 						echo "<span style=\"color:red\">Tarikh akan ditentukan kelak.</span>";
 					} ?></td>
                 </tr>
 				<?php 
-				if($row_list_peserta['ts_kursus_vendor'] == 'Kursus Luar Jadual') { 
+				if($row_list_peserta['ts_latihan_vendor'] == 'Kursus Luar Jadual') { 
 					echo "<tr><td colspan='2'>&nbsp;</td></tr>";
 				}
 				else { ?>
                 <tr>
                   <td><strong>Tarikh tutup</strong></td>
                   
-                  <td><?php if($row_list_peserta['ts_kursus_jadual'] != '0000-00-00') { echo date("d F Y",strtotime($row_list_peserta['ts_kursus_jadual'])); } else {
+                  <td><?php if($row_list_peserta['ts_latihan_jadual'] != '0000-00-00') { echo date("d F Y",strtotime($row_list_peserta['ts_latihan_jadual'])); } else {
 						echo "<span style=\"color:red\">Tarikh akan ditentukan kelak.</span>"; } ?></td>
                 </tr>
                 <tr>
                   <td><strong>Tarikh paparan</strong></td>
 
-                  <td><?php if($row_list_peserta['ts_kursus_pubdate'] != '0000-00-00') { echo date("d F Y",strtotime($row_list_peserta['ts_kursus_pubdate'])); } else {
+                  <td><?php if($row_list_peserta['ts_latihan_pubdate'] != '0000-00-00') { echo date("d F Y",strtotime($row_list_peserta['ts_latihan_pubdate'])); } else {
 						echo "<span style=\"color:red\">Tarikh akan ditentukan kelak.</span>"; } ?></td>
                 </tr>
 				<?php } ?>
                 <tr>
                   <td><strong>Yuran</strong></td>
-                  <td>RM <?php echo number_format($row_list_peserta['ts_kursus_harga'],2); ?></td>
+                  <td>RM <?php echo number_format($row_list_peserta['ts_latihan_harga'],2); ?></td>
                 </tr>
                 <tr>
                   <td><strong>Keterangan</strong></td>
-                  <td><?php echo $row_list_peserta['ts_kursus_keterangan']; ?></td>
+                  <td><?php echo $row_list_peserta['ts_latihan_keterangan']; ?></td>
                 </tr>
 			</table>
 		<hr />
@@ -336,7 +336,7 @@ $(document).ready(function(){
             <h2>Ceramah</h2>
               
             <?php if ($totalRows_list_topic == 0) { // Show if recordset empty ?>
-            <p class="msg info">Belum ada ceramah bagi kursus ini. Klik pada pautan tambah ceramah di bawah</p>
+            <p class="msg info">Belum ada ceramah bagi latihan amali ini. Klik pada pautan tambah ceramah di bawah</p>
             <?php } // Show if recordset empty ?>
 			<?php if ($totalRows_list_topic > 0) { // Show if recordset not empty ?>
                 <table width="100%">
@@ -421,7 +421,7 @@ $(document).ready(function(){
 		<h2>Senarai Peserta</h2>
 		
         <?php if ($totalRows_peserta == 0) { // Show if recordset empty ?>
-		<p class="msg info">Belum ada peserta bagi kursus ini. Klik pada pautan tambah peserta diatas bagi memasukkan maklumat peserta secara manual</p>
+		<p class="msg info">Belum ada peserta bagi latihan amali ini. Klik pada pautan tambah peserta diatas bagi memasukkan maklumat peserta secara manual</p>
         <?php } // Show if recordset empty ?>
         <?php if ($totalRows_peserta > 0) { // Show if recordset not empty ?>
 		<p class="msg info">Sila klik pada status permohonan bagi menukar status peserta</p>
@@ -445,10 +445,10 @@ $(document).ready(function(){
 						<td><a href="../user/user-page.php?ts_peserta_ID=<?php echo $row_peserta['ts_peserta_ID']; ?>"><?php echo strtoupper($row_peserta['nama']); ?></a></td>
 						<td class="t-center"><?php echo $row_peserta['ic']; ?></td>
 						<td class="t-center"><a href="#"><span class="status" id="<?php echo $row_peserta['ts_peserta_ID']; ?>"><?php echo $row_peserta['status']; ?></a></span></td>
-						<td class="t-center"><a href="cetak-akuan-pengesahan.php?ts_kursus_id=<?php echo $row_peserta['ts_kursus_id']; ?>&ts_peserta_ID=<?php echo $row_peserta['ts_peserta_ID']; ?>"><img src="img/icons/table.png" alt="Pengesahan"/></a></td>
-						<td class="t-center"><a href="cetak-sijil.php?ts_kursus_id=<?php echo $row_peserta['ts_kursus_id']; ?>&ts_peserta_ID=<?php echo $row_peserta['ts_peserta_ID']; ?>"><img src="img/icons/printer.png" alt="Sijil"/></a></td>
+						<td class="t-center"><a href="cetak-akuan-pengesahan.php?ts_latihan_id=<?php echo $row_peserta['ts_latihan_id']; ?>&ts_peserta_ID=<?php echo $row_peserta['ts_peserta_ID']; ?>"><img src="img/icons/table.png" alt="Pengesahan"/></a></td>
+						<td class="t-center"><a href="cetak-sijil.php?ts_latihan_id=<?php echo $row_peserta['ts_latihan_id']; ?>&ts_peserta_ID=<?php echo $row_peserta['ts_peserta_ID']; ?>"><img src="img/icons/printer.png" alt="Sijil"/></a></td>
 						<td class="t-center">
-							<a href="padam-peserta.php?peserta_id=<?php echo $row_peserta['ts_peserta_ID']; ?>&kursus_id=<?php echo $row_peserta['ts_kursus_id']; ?>" onClick="javascript: return confirm('Anda pasti ingin memadam rekod peserta ini? \nKlik OK untuk padam. \nKlik CANCEL untuk kembali.');"><img src="img/icons/delete.png" alt="Padam"/></a>
+							<a href="padam-peserta.php?peserta_id=<?php echo $row_peserta['ts_peserta_ID']; ?>&kursus_id=<?php echo $row_peserta['ts_latihan_id']; ?>" onClick="javascript: return confirm('Anda pasti ingin memadam rekod peserta ini? \nKlik OK untuk padam. \nKlik CANCEL untuk kembali.');"><img src="img/icons/delete.png" alt="Padam"/></a>
 						</td>
 						<td class="t-center"><a href="includes/sendmail.php?ts_peserta_ID=<?php echo $row_peserta['ts_peserta_ID']; ?>"><img src="img/icons/email.png" /></a></td>
 					</tr>
@@ -457,7 +457,7 @@ $(document).ready(function(){
 			</table>
 			<br />
 		<div class="buttons">
-            <a href="print-senarai-peserta.php?id=<?php echo $row_list_peserta['ts_kursus_id']; ?>">
+            <a href="print-senarai-peserta.php?id=<?php echo $row_list_peserta['ts_latihan_id']; ?>">
 			<img src="img/icons/printer.png" alt=""/>Cetak senarai peserta</a>
 		</div>
 		<br /><br />
@@ -468,12 +468,12 @@ $(document).ready(function(){
 		<!-- Headings -->
         <h2>Bayaran Pendahuluan</h2>
 			<div class="buttons">
-				<a href="tambah-bayaran-pendahuluan-kursus.php?id=<?php echo $_GET['ts_kursus_id']; ?>">
+				<a href="tambah-bayaran-pendahuluan-kursus.php?id=<?php echo $_GET['ts_latihan_id']; ?>">
 				<img src="img/icons/user_suit.png" alt=""/>Tambah Rekod</a>
 			</div>
             <div class="fix"></div>
 			<?php if ($totalRows_rekod == 0) { // Show if recordset empty ?>
-            <p class="msg info">Belum ada maklumat pendahuluan bagi kursus ini. Klik pada pautan tambah rekod di bawah</p>
+            <p class="msg info">Belum ada maklumat pendahuluan bagi latihan amali ini. Klik pada pautan tambah rekod di bawah</p>
 				<?php } // Show if recordset empty ?>
 				<?php if ($totalRows_rekod > 0) { // Show if recordset not empty ?>
 				<p class="msg info">Berikut adalah senarai pengambil pendahuluan (advance) bagi kursus ini</p>
@@ -511,21 +511,21 @@ $(document).ready(function(){
 		<!-- 3 columns -->
 		</div>
 		<div class="buttons">
-            <a href="ubah-kursus.php?ts_kursus_id=<?php echo $row_list_peserta['ts_kursus_id']; ?>">
+            <a href="ubah-latihan.php?ts_latihan_id=<?php echo $row_list_peserta['ts_latihan_id']; ?>">
 			<img src="../ico_edit.gif" alt=""/>Ubah</a>
 			
-            <a href="padam-kursus.php?id=<?php echo $row_list_peserta['ts_kursus_id']; ?>" onClick="javascript: return confirm('Anda pasti ingin memadam kursus ini? \nKlik OK untuk padam. \nKlik CANCEL untuk kembali.');"><img src="img/icons/cross.png" alt=""/>Padam</a>
+            <a href="padam-latihan.php?id=<?php echo $row_list_peserta['ts_latihan_id']; ?>" onClick="javascript: return confirm('Anda pasti ingin memadam kursus ini? \nKlik OK untuk padam. \nKlik CANCEL untuk kembali.');"><img src="img/icons/cross.png" alt=""/>Padam</a>
 			
-			<a href="upload-kursus.php?ts_kursus_id=<?php echo $row_list_peserta['ts_kursus_id']; ?>">
+			<a href="upload-latihan.php?ts_latihan_id=<?php echo $row_list_peserta['ts_latihan_id']; ?>">
 			<img src="img/icons/attach.png" alt=""/>Muat-naik</a>
 			
-			<a href="tambah-topik.php?ts_kursus_id=<?php echo $row_list_peserta['ts_kursus_id']; ?>">
+			<a href="tambah-topik.php?ts_latihan_id=<?php echo $row_list_peserta['ts_latihan_id']; ?>">
 			<img src="img/icons/images.png" alt=""/>Tambah Ceramah</a>
 			
-			<a href="tambah-penceramah.php?ts_kursus_id=<?php echo $row_list_peserta['ts_kursus_id']; ?>">
+			<a href="tambah-penceramah.php?ts_latihan_id=<?php echo $row_list_peserta['ts_latihan_id']; ?>">
             <img src="img/icons/user_suit.png" alt=""/>Tambah Penceramah</a>
 
-            <a href="tambah-peserta.php?ts_kursus_id=<?php echo $row_list_peserta['ts_kursus_id']; ?>">
+            <a href="tambah-peserta.php?ts_latihan_id=<?php echo $row_list_peserta['ts_latihan_id']; ?>">
             <img src="img/icons/group_add.png" alt=""/>Tambah Peserta</a>
 
             <a href="javascript:history.go(-1)">

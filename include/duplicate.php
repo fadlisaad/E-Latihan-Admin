@@ -51,20 +51,27 @@
 	}
 if(isset($_GET['id'])){
 
-	$kursus_id 	= $_GET['id']; //The id of the product you want to copy
+	$id 		= $_GET['id'];
 	$newyear	= $_GET['year'];
+	$type		= $_GET['type'];
 	
-	MysqlCopyRow("ts_kursus","ts_kursus_id",$kursus_id);
+	if ($type == 1) {
+		$var = 'kursus';
+		}
+	else {
+		$var = 'latihan';
+		}
+	MysqlCopyRow("ts_".$var,"ts_".$var."_id",$id);
 	
-	$query 	= "SELECT ts_kursus_id FROM ts_kursus ORDER BY ts_kursus_id DESC LIMIT 1";
+	$query 	= "SELECT ts_".$var."_id FROM ts_".$var." ORDER BY ts_".$var."_id DESC LIMIT 1";
 	$result = @mysql_query($query);
 	$row 	= mysql_fetch_array($result);
-	$newid	= $row['ts_kursus_id'];
+	$newid	= $row['ts_'.$var.'_id'];
 	
-	$update_year = "UPDATE ts_kursus SET ts_kursus_year = '$newyear' WHERE ts_kursus_id = $newid";
+	$update_year = "UPDATE ts_".$var." SET ts_".$var."_year = ".$newyear." WHERE ts_".$var."_id = $newid";
 	$result_year = @mysql_query($update_year);
 	
-	header("Location: ../admin/ubah-kursus.php?ts_kursus_id=" . $row['ts_kursus_id'] . ""); /* Redirect browser */
+	header("Location: ../admin/ubah-".$var.".php?ts_".$var."_id=" . $row['ts_'.$var.'_id'] . ""); /* Redirect browser */
 	/* Make sure that code below does not get executed when we redirect. */
 	exit;
 }

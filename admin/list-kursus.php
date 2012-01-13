@@ -10,7 +10,6 @@
 
 require_once('../Connections/ts_kursus.php');
 require_once('../login/auth.php');
-require_once('../include/paginator.php');
 $currentyear	= date('Y');
 
 if (!function_exists("GetSQLValueString")) {

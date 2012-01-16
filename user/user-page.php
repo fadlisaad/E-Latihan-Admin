@@ -325,6 +325,7 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
                 <tr>
                 <th width="15" class="t-center">Bil</th>
                 <th>Tajuk Kursus </th>
+				<th class="t-center">Tahun</th>
 				<th class="t-center">Status</th>
 				<th>Tindakan</th>
                 </tr>
@@ -332,6 +333,7 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
                 <tr>
 					<td width="15" class="t-center"><?php echo ++$orderNum; ?></td>
 					<td><a href="../admin/list-peserta-kursus.php?ts_kursus_id=<?php echo $row_kursus['ts_kursus_id']; ?>"><?php echo strtoupper($row_kursus['ts_kursus_nama']); ?></a></td>
+					<td class="t-center"><?php echo $row_kursus['ts_kursus_year']; ?></td>
 					<td class="t-center"><?php if ($row_kursus['status'] == '1') {
 							echo "<img src=\"../admin/img/icons/tick.png\" alt=\"Aktif\"/>";
 							}

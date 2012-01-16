@@ -10,7 +10,7 @@
 
 require_once('../Connections/ts_kursus.php');
 require_once('../login/auth.php');
-error_reporting(E_NOTICE);
+error_reporting(E_ALL);
 $currentyear	= date('Y');
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -102,7 +102,7 @@ isset($startRow_admin)? $orderNum=$startRow_admin:$orderNum=0;
 <link rel="stylesheet" media="screen" type="text/css" href="../css/demo_table.css" />
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#datatable').dataTable();
+		$('.datatable').dataTable();
 	});
 </script>
 <title>Halaman Utama</title>
@@ -163,7 +163,7 @@ isset($startRow_admin)? $orderNum=$startRow_admin:$orderNum=0;
 			<?php if($row_admin > 0) { ?>
 			<p class="msg warning"><strong>Perhatian</strong>: Klik pada ruangan 'Duplicate' untuk copy maklumat kursus ke tahun berikutnya.</p>
 			<div id="demo">
-            <table width="100%" id="datatable">
+            <table width="100%" class="datatable">
 				<thead>
 					<tr>
 						<th width="15" class="t-center">Bil.</th>
@@ -186,7 +186,7 @@ isset($startRow_admin)? $orderNum=$startRow_admin:$orderNum=0;
 						<td class="t-center"><?php echo $row_admin['ts_kursus_kategori']; ?></td>
 						<td class="t-center"><?php echo $row_admin['ts_kursus_year']; ?></td>
 						<td class="t-center"><a href="../include/duplicate.php?id=<?php echo $row_admin['ts_kursus_id']; ?>&amp;year=<?php echo $thisyear+1 ?>&amp;type=1"><?php echo $thisyear+1 ?></a></td>
-						<td class="t-center"><a href="padam-kursus.php?id=<?php echo $row_admin['ts_kursus_id']; ?>" onClick="javascript: return confirm('Anda pasti ingin memadam rekod kursus ini? \nKlik OK untuk padam. \nKlik CANCEL untuk kembali.');"><img src="img/icons/delete.png" alt="Padam"/></a></td>
+						<td class="t-center"><a href="padam.php?id=<?php echo $row_admin['ts_kursus_id']; ?>&amp;type=1" onClick="javascript: return confirm('Anda pasti ingin memadam rekod kursus ini? \nKlik OK untuk padam. \nKlik CANCEL untuk kembali.');"><img src="img/icons/delete.png" alt="Padam"/></a></td>
 					</tr>
 				<?php } while ($row_admin = mysql_fetch_assoc($admin)); ?>
 				</tbody>
@@ -224,7 +224,7 @@ isset($startRow_admin)? $orderNum=$startRow_admin:$orderNum=0;
 			<?php if($row_latihan > 0) { ?>
 			<p class="msg warning"><strong>Perhatian</strong>: Klik pada ruangan 'Duplicate' untuk copy maklumat latihan ke tahun berikutnya.</p>
 			<div id="demo">
-            <table width="100%" id="datatable">
+            <table width="100%" class="datatable">
 				<thead>
 					<tr>
 						<th width="15" class="t-center">Bil.</th>
@@ -247,7 +247,7 @@ isset($startRow_admin)? $orderNum=$startRow_admin:$orderNum=0;
 						<td class="t-center"><?php echo $row_latihan['ts_latihan_kategori']; ?></td>
 						<td class="t-center"><?php echo $row_latihan['ts_latihan_year']; ?></td>
 						<td class="t-center"><a href="../include/duplicate.php?id=<?php echo $row_latihan['ts_latihan_id']; ?>&amp;year=<?php echo $thisyear+1 ?>&amp;type=2"><?php echo $thisyear+1 ?></a></td>
-						<td class="t-center"><a href="padam-latihan.php?id=<?php echo $row_latihan['ts_latihan_id']; ?>" onClick="javascript: return confirm('Anda pasti ingin memadam rekod latihan ini? \nKlik OK untuk padam. \nKlik CANCEL untuk kembali.');"><img src="img/icons/delete.png" alt="Padam"/></a></td>
+						<td class="t-center"><a href="padam.php?id=<?php echo $row_latihan['ts_latihan_id']; ?>&amp;type=2" onClick="javascript: return confirm('Anda pasti ingin memadam rekod <?php echo strtoupper($row_latihan['ts_latihan_nama']); ?>? \nKlik OK untuk padam. \nKlik CANCEL untuk kembali.');"><img src="img/icons/delete.png" alt="Padam"/></a></td>
 					</tr>
 				<?php } while ($row_latihan = mysql_fetch_assoc($latihan)); ?>
 				</tbody>

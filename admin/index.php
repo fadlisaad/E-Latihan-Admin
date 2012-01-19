@@ -111,20 +111,16 @@ isset($startRow_admin)? $orderNum=$startRow_admin:$orderNum=0;
 <body onLoad="redirect()">
 <div id="main">
 	<!-- Tray -->
-		<?php include('tray.php'); ?>
-	<!--  /tray -->
+	<?php include('tray.php'); ?>
 	<hr class="noscreen" />
 	<!-- Menu -->
-		<?php include('top.php'); ?>
-	<!-- /header -->
+	<?php include('top.php'); ?>
 	<hr class="noscreen" />
 	<!-- Columns -->
 	<div id="cols" class="box">
 	<!-- Aside (Left Column) -->
-		<?php include('aside.php'); ?>
-	<!-- /aside -->
+	<?php include('aside.php'); ?>
     <hr class="noscreen" />
-
 	<!-- Content (Right Column) -->
     <div id="content">
         <h3>Selamat kembali, <?php echo $_SESSION['SESS_FULLNAME'];?></h3>

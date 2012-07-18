@@ -33,8 +33,9 @@
 	$yuran=$_POST['yuran'];
 	$invoice=$_POST['invoice'];
 	$id=$_POST['id'];
+	$vendor=$post['vendor'];
 	
-	// Insert a row of information into the table "example"
+	// Insert a row of information into the table "ts_peserta"
 	mysql_query("INSERT INTO ts_peserta (
 		ts_peserta_nama, 
 		ts_peserta_ic, 
@@ -75,6 +76,13 @@
 	
 	$to = $email;
 	$subject = "Pendaftaran untuk kursus ". $tajuk."";
+	
+	if ($vendor == 'Kursus Luar Jadual') {
+		$tarikh = '';
+	}
+	else {
+		$tarikh = 'Tarikh Mula: '.$tarikh_mula.'<br>Tarikh Tamat: '.$tarikh_tamat.'<br>';
+	}
 
 	$message = "
 	<html><body>
@@ -86,8 +94,7 @@
 	Kategori: ".$kategori."<br>
 	Sinopsis: ".strip_tags($keterangan)."<br>
 	Lokasi: ".$lokasi."<br>
-	Tarikh Mula: ".$tarikh_mula."<br>
-	Tarikh Tamat: ".$tarikh_tamat."<br>
+	".$tarikh."
 	Yuran: RM ".$yuran."<br>
 	
 	Nama: ".$nama."<br>
@@ -130,7 +137,7 @@
 	echo "<p>Anda boleh menyemak status permohonan anda dengan log masuk pada pautan 'Semak Permohonan | Semak Status Permohonan Anda'.</p>";
 	echo "<h2>Bayaran</h2>";
 	echo "<p>Untuk keterangan lanjut mengenai cara dan medium pembayaran, anda boleh merujuk kepada <a href=\"index.php?option=com_content&view=article&id=50\">halaman ini</a></p>";
-	echo "<p><a href=\"http://www.cimbclicks.com.my/\"><img src=\"ts/images/cimb.gif\" alt=\"CIMB\" /></a></p>";
+	echo "<p><a href=\"http://elearn.mardi.gov.my/maklumat-umum/kaedah-pembayaran\"><img src=\"ts/images/cimb.gif\" alt=\"CIMB\" /></a></p>";
 	echo "<p>Klik di sini untuk bayaran secara online menggunakan <a href=\"http://www.cimbclicks.com.my/\">CimbClikcs</a></p>";
 	}
 ?>

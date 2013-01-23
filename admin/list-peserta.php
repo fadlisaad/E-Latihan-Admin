@@ -186,7 +186,7 @@ $queryString_list = sprintf("&totalRows_list=%d%s", $totalRows_list, $queryStrin
             <div id="content">
 			<h3>Bilangan Peserta (Keseluruhan) bagi tahun <?php echo $thisyear; ?></h3>
 			<div class="buttons"><a href="#"><img src="img/icons/magnifier.png" alt=""/>Pilih tahun&nbsp;&raquo;</a></div>
-			<?php for($year = 2009; $year < 2012; $year++) { ?>
+			<?php for($year = 2009; $year < 2013; $year++) { ?>
 			<div class="buttons">
 			  <a href="list-peserta.php?id=<?php echo $year ?>">
 			  <img src="img/icons/date.png" alt=""/><?php echo $year ?></a>

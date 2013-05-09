@@ -13,10 +13,10 @@
 	
 	//Include database connection details
 	//Database definition. Please change this to your database environment
-	define('DB_HOST', '202.190.32.26');	//Your hosting. 99% you don't need to change this
-    define('DB_USER', 'root');			//Your MySQL username
-    define('DB_PASSWORD', 'xs2mysql');	//Your MySQL password
-    define('DB_DATABASE', 'mardilms');	//Database that contain the application data
+	define('DB_HOST', '');	//Your hosting. 99% you don't need to change this
+    	define('DB_USER', '');			//Your MySQL username
+    	define('DB_PASSWORD', '');	//Your MySQL password
+    	define('DB_DATABASE', '');	//Database that contain the application data
 	
 	//Array to store validation errors
 	$errmsg_arr = array();

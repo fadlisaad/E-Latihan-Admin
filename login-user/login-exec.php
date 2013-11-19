@@ -1,4 +1,3 @@
-<!-- #BeginDate format:fcEn2a -->Monday, 22-Feb-2010 10:57 AM<!-- #EndDate -->
 <?php
 	/**
 	 * Copyright 2009-2011 MARDI
